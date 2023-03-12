@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  POSTGRESQL_DB: seidtech
+  POSTGRESQL_DB: postgres
   POSTGRESQL_USER: seidtech
   POSTGRESQL_PASSWORD: mancity00PLT
   JAVA_VERSION: 17
@@ -26,8 +26,8 @@ jobs:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v17
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
         with:
           java-version: ${{ env.JAVA_VERSION }}
       - name: Maven Clean Package

@@ -10,7 +10,7 @@ env:
   POSTGRESQL_DB: seidtech
   POSTGRESQL_USER: seidtech
   POSTGRESQL_PASSWORD: mancity00PLT
-  JAVA_VERSION: 17
+  JAVA_VERSION: 1.4.3
 
 jobs:
   build:

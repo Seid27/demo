@@ -42,8 +42,12 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
       - name: Build Number
         id: build-number
-        run: echo "{BUILD_NUMBER}={$(date '+%-d.%-m.%Y.%-H.%-M.%-S')}" >> $GITHUB_OUTPUT
+        run: echo "BUILD_NUMBER=$(date '+%-d.%-m.%Y.%-H.%-M.%-S')" >> $GITHUB_OUTPUT
         #run: echo "::set-output name=BUILD_NUMBER::$(date '+%-d.%-m.%Y.%-H.%-M.%-S')"
+        
+      - name: Save state
+        run: echo "DOCKER_HUB_USERNAME=sredi" >> $GITHUB_ENV
+        
       - name: Docker Login
         uses: docker/login-action@f3364599c6aa293cdc2b8391b1b56d0c30e45c8a
         with:

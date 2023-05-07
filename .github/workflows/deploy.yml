@@ -9,7 +9,7 @@ on:
 env:
   # Postgres
   POSTGRESQL_DB: seidtech
-  POSTGRESQL_USER: postgres
+  POSTGRESQL_USER: seidtech
   POSTGRESQL_PASSWORD: mancity00PLT
   # Java
   JAVA_VERSION: 17

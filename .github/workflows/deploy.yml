@@ -6,6 +6,10 @@ on:
 
   workflow_dispatch:
   
+permissions:
+  id-token: write
+  contents: read
+
 
 env:
   # Postgres
@@ -14,13 +18,12 @@ env:
   POSTGRESQL_PASSWORD: password
   # Java
   JAVA_VERSION: 17
-  # DockerHub
-  #DOCKER_HUB_USERNAME: sredi
   # AWS & Elastic Bean Stalk
   AWS_REGION: us-east-2
   EB_ENVIRONMENT_NAME: Springbootreactfullstack-env-1
   EB_APPLICATION_NAME: springboot-react-fullstack
   EB_DEPLOYMENT_PACKAGE: elasticbeanstalk/docker-compose.yml
+  BUCKET_NAME : elasticbeanstalk-us-east-2-943395628474
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -73,4 +76,25 @@ jobs:
           git add elasticbeanstalk/docker-compose.yml
           git commit -m "new app version: ${BUILD_NUMBER}"
           git push
-# deploy to aws
+          
+      - name: Configure AWS creditials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::943395628474:oidc-provider/token.actions.githubusercontent.com
+          role-session-name: ElasticBeanstalkDeployment
+          aws-region: ${{ env.AWS_REGION }}
+          
+      # Upload a file to AWS s3
+      - name: Upload docker-compose.yml to S3 bucket
+        run: |
+          aws s3 cp ${{ env.EB_DEPLOYMENT_PACKAGE }} s3://${{ env.BUCKET_NAME }}/
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

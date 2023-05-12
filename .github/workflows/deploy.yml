@@ -39,10 +39,6 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v3
-        with:
-            persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-            fetch-depth: 0
-            
       - name: Setup Java JDK
         uses: actions/setup-java@v3
         with:
@@ -79,13 +75,7 @@ jobs:
           git config user.email github-actions@github.com
           git add elasticbeanstalk/docker-compose.yml
           git commit -m "new app version: ${BUILD_NUMBER}"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-        # git push
-          
+          git push
           
       - name: Configure AWS creditials
         uses: aws-actions/configure-aws-credentials@v2

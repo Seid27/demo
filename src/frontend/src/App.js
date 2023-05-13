@@ -3,7 +3,21 @@ import React from "react";
 import './App.css';
 import {useState, useEffect} from 'react'
 import {deleteStudent, getAllStudents} from "./client";
-import {Layout, Menu, Breadcrumb, Table, Spin, Empty, Button, Badge, Tag, Avatar, Radio, Popconfirm} from 'antd';
+import {
+    Layout,
+    Menu,
+    Breadcrumb,
+    Table,
+    Spin,
+    Empty,
+    Button,
+    Badge,
+    Tag,
+    Avatar,
+    Radio,
+    Popconfirm,
+    Divider
+} from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,
@@ -209,6 +223,12 @@ function App() {
                 </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>By seidTech</Footer>
+            <Divider>
+                <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://amigoscode.com/"> Amigos Code Website</a>
+            </Divider>
         </Layout>
     </Layout>
 

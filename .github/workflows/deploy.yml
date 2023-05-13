@@ -83,7 +83,7 @@ jobs:
           branch: ${{ github.ref }}
           
       - name: Configure AWS creditials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::943395628474:role/github_actions
           role-session-name: ElasticBeanstalkDeployment

@@ -225,6 +225,7 @@ function App() {
             <Footer style={{ textAlign: 'center' }}>By seidTech</Footer>
             <Divider>
                 <a
+                    rel="noopener noreferrer"
                     target="_blank"
                     href="https://amigoscode.com/"> Amigos Code Website</a>
             </Divider>

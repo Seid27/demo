@@ -94,6 +94,14 @@ jobs:
         run: |
           aws s3 cp ${{ env.EB_DEPLOYMENT_PACKAGE }} s3://${{ env.BUCKET_NAME }}/
       
+      - name: Create new ElasticBeanstalk Application Version
+        run: |
+         aws elasticbeanstalk create-application-version \
+         --application-name springboot-react-fullstack \
+         --source-bundle S3Bucket=${{ env.BUCKET_NAME }},S3Key=${{ env.EB_DEPLOYMENT_PACKAGE }} \
+         --version-label "ver-${{ github.sha }}" \
+         --description "commit-sha-${{ github.sha }}"
+      
       
       
       

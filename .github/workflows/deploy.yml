@@ -6,10 +6,10 @@ on:
 
   workflow_dispatch:
   
-# permissions:
-  #id-token: write
-  #contents: write
-  #packages: write
+ permissions:
+  id-token: write
+  contents: write
+  packages: write
   
 env:
   # Postgres
@@ -83,9 +83,9 @@ jobs:
           branch: ${{ github.ref }}
           
       - name: Configure AWS creditials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::943395628474:oidc-provider/token.actions.githubusercontent.com
+          role-to-assume: arn:aws:iam::943395628474:role/github_actions
           role-session-name: ElasticBeanstalkDeployment
           aws-region: ${{ env.AWS_REGION }}
           

@@ -98,7 +98,7 @@ jobs:
         run: |
          aws elasticbeanstalk create-application-version \
          --application-name springboot-react-fullstack \
-         --source-bundle S3Bucket=${{ env.BUCKET_NAME }},S3Key=${{ env.EB_DEPLOYMENT_PACKAGE }} \
+         --source-bundle S3Bucket=${{ env.BUCKET_NAME }},S3Key=docker-compose.yml \
          --version-label "ver-${{ github.sha }}" \
          --description "commit-sha-${{ github.sha }}"
       

@@ -227,7 +227,7 @@ function App() {
                 <a
                     rel="noopener noreferrer"
                     target="_blank"
-                    href="https://amigoscode.com/"> Amigos Code Website</a>
+                    href="https://amigoscode.com/"> Amigos Code Website made by seid</a>
             </Divider>
             <Footer style={{ textAlign: 'center' }}>By seidTech</Footer>
         </Layout>

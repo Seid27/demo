@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: "sredi/springboot-react-fullstack:14.5.2023.21.3.52"
+    image: "sredi/springboot-react-fullstack:14.5.2023.22.34.4"
     ports:
       - "80:8080"
     restart: "always"

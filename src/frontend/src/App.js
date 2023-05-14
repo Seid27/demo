@@ -181,7 +181,7 @@ function App() {
                    scroll={{
                        y: 430,}}
                    rowKey={(students) => students.id}
-            />;
+            />
         </>
 
     }

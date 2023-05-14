@@ -102,10 +102,10 @@ jobs:
          --version-label "ver-${{ github.sha }}" \
          --description "commit-sha-${{ github.sha }}"
          
-      - name: Deploy new ElasticBeanstalk Application Version
-        run: |
-             aws elasticbeanstalk update-environment \
-             --environment-name ${{env.EB_ENVIRONMENT_NAME}} --version-label "ver-${{ github.sha }}"
+      # - name: Deploy new ElasticBeanstalk Application Version
+        #run: |
+             #aws elasticbeanstalk update-environment \
+             #--environment-name ${{env.EB_ENVIRONMENT_NAME}} --version-label "ver-${{ github.sha }}"
       
       
       

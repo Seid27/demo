@@ -23,10 +23,10 @@ public class StudentController {
         studentService.addStudent(student);
     }
 
-    @DeleteMapping
-    public void deleteStudent(@RequestParam Long id){
-        System.out.println("this is the id" + id);
-        studentService.deleteStudent(id);
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId){
+        System.out.println("this is the id" + studentId);
+        studentService.deleteStudent(studentId);
     }
 
 }
